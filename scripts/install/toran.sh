@@ -53,6 +53,16 @@ fi
 mkdir -p $WORK_DIRECTORY/web/repo/packagist
 ln -s $DATA_DIRECTORY/packagist $WORK_DIRECTORY/web/repo/packagist/p
 
+# Create private directory
+if [ ! -d $DATA_DIRECTORY/private ]; then
+    echo "Creating packages directory..."
+    mkdir -p $DATA_DIRECTORY/private
+fi
+if [ -d $WORK_DIRECTORY/web/repo/private ]; then
+    rm -rf $WORK_DIRECTORY/web/repo/private
+fi
+ln -s $DATA_DIRECTORY/private $WORK_DIRECTORY/web/repo/private
+
 # Create directory mirrors
 if [ ! -d $DATA_DIRECTORY/mirrors ]; then
     echo "Creating mirrors directories..."
